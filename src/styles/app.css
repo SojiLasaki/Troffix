@@ -5,12 +5,17 @@
 }
 
 .sidebar {
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding: 24px 16px;
   border-right: 1px solid #dce3e8;
   background: linear-gradient(160deg, #f8fafc 0%, #e5f2ff 100%);
+}
+
+.sidebar-account {
+  margin-bottom: auto;
 }
 
 .brand {
@@ -22,6 +27,7 @@
   font-size: 19px;
   font-weight: 700;
 }
+
 
 .brand-mark {
   display: grid;
@@ -38,6 +44,52 @@
   margin: 0 0 20px;
   color: #697078;
   font-size: 14px;
+}
+.sidebar-heading.account {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sidebar-brand-row {
+  /* margin-top: 20px; */
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.sidebar-section + .sidebar-section {
+  margin-top: 2px;
+}
+
+.sidenav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  color: #15191d;
+  text-decoration: none;
+  transition: background-color 120ms ease;
+  margin-bottom: 3906px;
+}
+
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .sidebar-nav {

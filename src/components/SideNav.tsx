@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { NavLink } from "react-router";
+import TroffixLogo from "../assets/troffx-logo.svg"
+import MenuToggleIcon from "../assets/MenuToggleIcon.svg"
 
 type IconName =
   | "home"
@@ -119,47 +121,51 @@ const sections: SidebarSection[] = [
     ],
   },
 ];
+type SideNavProps = {
+  collapsed: boolean;
+  onToggle: () => void;
+};
 
-export default function SideNav() {
+export default function SideNav({ collapsed, onToggle }: SideNavProps) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar${collapsed ? " is-collapsed" : ""}`}>
       <div className="sidebar-brand-row">
-        <span className="brand-mark" aria-label="Troffix">
-          X
-        </span>
-        <button
-          className="sidebar-toggle"
-          type="button"
-          aria-label="Collapse sidebar"
+        <img className="sidebar-logo" src={TroffixLogo} alt="Troffix" />
+        <button 
+        className="sidebar-toggle" type="button" onClick={onToggle} aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"} aria-expanded={!collapsed} title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
-          <span />
+          {collapsed ? 
+          <img src={MenuToggleIcon} alt="Expand sidebar" /> : 
+          <span>x</span>}
         </button>
       </div>
 
-      {sections.map((section) => (
-        <section className="sidebar-section" key={section.title}>
-          <p className="sidebar-heading">{section.title}</p>
+      <div className="sidebar-menu">
+        {sections.map((section) => (
+          <section className="sidebar-section" key={section.title}>
+            <p className="sidebar-heading">{section.title}</p>
 
-          <nav className="sidebar-nav" aria-label={section.title}>
-            {section.items.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) =>
-                  `nav-link${isActive ? " active" : ""}`
-                }
-              >
-                <MenuIcon name={item.icon} />
-                <span>{item.label}</span>
-                {item.badge && <span className="badge">{item.badge}</span>}
-              </NavLink>
-            ))}
-          </nav>
-        </section>
-      ))}
+            <nav className="sidebar-nav" aria-label={section.title}>
+              {section.items.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `nav-link${isActive ? " active" : ""}`
+                  }
+                >
+                  <MenuIcon name={item.icon} />
+                  <span>{item.label}</span>
+                  {item.badge && <span className="badge">{item.badge}</span>}
+                </NavLink>
+              ))}
+            </nav>
+          </section>
+        ))}
+      </div>
 
       <div className="sidebar-account">
-        <p className="sidebar-heading">Account</p>
+        <p className="sidebar-heading account">Account</p>
         <div className="account">
           <div className="account-avatar" aria-hidden="true">
             J
@@ -170,6 +176,7 @@ export default function SideNav() {
           </div>
         </div>
       </div>
+
     </aside>
   );
 }
