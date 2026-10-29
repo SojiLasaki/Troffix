@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import SideNav from "./SideNav"
 import { useState } from "react";
+import TopNavbar from "./TopNavbar";
 
 export default function AppShell() {
     const [isSideBarCollapsed, setSideBarCollapsed] = useState(false)
@@ -10,9 +11,12 @@ export default function AppShell() {
             <SideNav 
             collapsed={isSideBarCollapsed}
             onToggle={() => setSideBarCollapsed((current) => !current)}/>
-            <main className="page-content">
-                <Outlet />
-            </main>
+            <div className="main-area">
+                <TopNavbar />
+                <main className="page-content">
+                    <Outlet />
+                </main>
+            </div>
         </div>
     )
 }
