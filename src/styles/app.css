@@ -165,12 +165,13 @@
   place-items: center;
   padding: 0 4px;
   border-radius: 12px;
-  background: #f44336;
+  background: #ff1100;
   color: #fff;
   font-size: 10px;
   font-weight: 700;
   line-height: 1;
 }
+
 .sidenav-item {
   display: flex;
   align-items: center;
@@ -182,6 +183,17 @@
   text-decoration: none;
   transition: background-color 120ms ease;
   margin-bottom: 3906px;
+}
+
+.badge {
+  margin-left: auto;
+  padding: 3px 7px;
+  border-radius: 30px;
+  background: #fa0000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .sidebar-toggle {
@@ -393,14 +405,3 @@
   }
 }
 
-
-
-.badge {
-  margin-left: auto;
-  padding: 3px 7px;
-  border-radius: 4px;
-  background: #fa0000;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1.2;
-}
