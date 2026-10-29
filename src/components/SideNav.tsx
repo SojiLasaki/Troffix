@@ -91,7 +91,7 @@ type SidebarSection = {
 
 const sections: SidebarSection[] = [
   {
-    title: "Main menu",
+    title: "Main",
     items: [
       { to: "/overview", label: "Overview", icon: "home" },
       { to: "/saved-properties", label: "Saved Properties", icon: "heart" },
@@ -130,7 +130,13 @@ export default function SideNav({ collapsed, onToggle }: SideNavProps) {
   return (
     <aside className={`sidebar${collapsed ? " is-collapsed" : ""}`}>
       <div className="sidebar-brand-row">
-        <img className="sidebar-logo" src={TroffixLogo} alt="Troffix" />
+        {collapsed ? null : (
+          <div className="sidebar-brand-complete">
+            <img className="sidebar-logo" src={TroffixLogo} alt="Troffix" />
+            <span>Troffix</span>
+          </div>
+        )}
+        
         <button 
         className="sidebar-toggle" type="button" onClick={onToggle} aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"} aria-expanded={!collapsed} title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
@@ -141,11 +147,11 @@ export default function SideNav({ collapsed, onToggle }: SideNavProps) {
       </div>
 
       <div className="sidebar-menu">
-        {sections.map((section) => (
-          <section className="sidebar-section" key={section.title}>
+        {collapsed ? sections.map((section) => (
+          <section className="sidebar-section collapsed" key={section.title}>
             <p className="sidebar-heading">{section.title}</p>
 
-            <nav className="sidebar-nav" aria-label={section.title}>
+            <nav className="sidebar-nav collapsed" aria-label={section.title}>
               {section.items.map((item) => (
                 <NavLink
                   key={item.to}
@@ -154,28 +160,62 @@ export default function SideNav({ collapsed, onToggle }: SideNavProps) {
                     `nav-link${isActive ? " active" : ""}`
                   }
                 >
-                  <MenuIcon name={item.icon} />
-                  <span>{item.label}</span>
-                  {item.badge && <span className="badge">{item.badge}</span>}
+                  <span className="nav-icon-wrap">
+                    <MenuIcon name={item.icon} />
+                    { item.badge ? <span className="notify-collapsed">{item.badge}</span> : null }
+                  </span>
                 </NavLink>
               ))}
             </nav>
           </section>
-        ))}
+        )) : 
+
+          sections.map((section) => (
+            <section className="sidebar-section" key={section.title}>
+              <p className="sidebar-heading">{section.title}</p>
+
+              <nav className="sidebar-nav" aria-label={section.title}>
+                {section.items.map((item) => (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `nav-link${isActive ? " active" : ""}`
+                    }
+                  >
+                    <MenuIcon name={item.icon} />
+                    <span>{item.label}</span>
+                    {item.badge && <span className="badge">{item.badge}</span>}
+                  </NavLink>
+                ))}
+              </nav>
+            </section>
+          ))}
       </div>
 
-      <div className="sidebar-account">
+      { !collapsed ? 
+        <div className="sidebar-account">
+          <p className="sidebar-heading account">Account</p>
+          <div className="account">
+            <div className="account-avatar" aria-hidden="true">
+              J
+            </div>
+            <div>
+              <strong>Jegede Jegede</strong>
+              <span>Member</span>
+            </div>
+          </div>
+        </div>
+      :
+      <div className="sidebar-account-collapsed">
         <p className="sidebar-heading account">Account</p>
         <div className="account">
           <div className="account-avatar" aria-hidden="true">
             J
           </div>
-          <div>
-            <strong>Jegede Jegede</strong>
-            <span>Member</span>
-          </div>
-        </div>
+        </div> 
       </div>
+      }
 
     </aside>
   );

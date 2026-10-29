@@ -1,21 +1,77 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 328px;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  border-right: 1px solid #dce3e8;
+  background: linear-gradient(160deg, #f8fafc 0%, #e5f2ff 100%);
+}
+
 .app-layout {
   display: grid;
   grid-template-columns: 328px minmax(0, 1fr);
   min-height: 100vh;
 }
 
-.sidebar {
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 24px 16px;
-  border-right: 1px solid #dce3e8;
-  background: linear-gradient(160deg, #f8fafc 0%, #e5f2ff 100%);
+.app-layout.is-collapsed {
+  grid-template-columns: 80px minmax(0, 1fr);
 }
+
+.app-layout.is-collapsed .sidebar {
+  width: 80px;
+}
+
+.main-area {
+  grid-column: 2;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .main-area {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .app-layout {
+    display: flex;
+    flex-direction: column;
+  }
+} d
 
 .sidebar-account {
   margin-bottom: auto;
+}
+
+.sidebar-account-collapsed{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-account-collapsed .account-avatar {
+  flex-direction: column;
+  align-items: center;
+  max-width: 40px;
+  max-height: 40px;
+  font-size: 15px;
+  margin: 0;
+  padding: 10px; 
 }
 
 .brand {
@@ -58,6 +114,21 @@
   justify-content: space-between;
 }
 
+.sidebar-brand-complete {
+  display: flex;
+  align-items: center;
+  font-weight: 1000;
+  gap: 12px;
+  color: #1746dd;
+
+}
+
+.sidebar-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
 .sidebar-menu {
   display: flex;
   flex-direction: column;
@@ -68,6 +139,38 @@
   margin-top: 2px;
 }
 
+.sidebar-section.collapsed {
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.nav-icon-wrap {
+  position: relative;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  place-items: center;
+}
+
+.notify-collapsed {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  z-index: 2;
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  padding: 0 4px;
+  border-radius: 12px;
+  background: #f44336;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
 .sidenav-item {
   display: flex;
   align-items: center;
@@ -112,6 +215,7 @@
 .nav-link:hover {
   background: rgb(255 255 255 / 65%);
 }
+
 
 .nav-link.active {
   background: #cfe2ff;
@@ -295,7 +399,7 @@
   margin-left: auto;
   padding: 3px 7px;
   border-radius: 4px;
-  background: #111;
+  background: #fa0000;
   color: #fff;
   font-size: 12px;
   line-height: 1.2;

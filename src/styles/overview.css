@@ -1,0 +1,299 @@
+.overview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  min-height: calc(100vh - 96px);
+  margin: -26px -24px;
+}
+
+.overview-main {
+  min-width: 0;
+  padding: 26px 24px;
+}
+
+.welcome-header h1,
+.overview-section h2,
+.explore-panel h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.welcome-header h1 {
+  font-weight: 650;
+}
+
+.welcome-header p {
+  margin: 14px 0 28px;
+  color: #606060;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metric-card {
+  display: flex;
+  min-width: 0;
+  min-height: 88px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.metric-card.pink {
+  background: #fff5fa;
+}
+
+.metric-card.green {
+  background: #f2fcf5;
+}
+
+.metric-card.blue {
+  background: #f2f8ff;
+}
+
+.metric-icon,
+.update-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 28px;
+}
+
+.metric-card.pink .metric-icon {
+  color: #f53698;
+}
+
+.metric-card.green .metric-icon {
+  color: #19bc58;
+}
+
+.metric-card.blue .metric-icon {
+  color: #1746dd;
+}
+
+.metric-copy {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.metric-copy strong {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.metric-copy > span {
+  overflow: hidden;
+  color: #858585;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metric-arrow {
+  margin-left: auto;
+  font-size: 28px;
+}
+
+.overview-section {
+  margin-top: 20px;
+}
+
+.overview-section > h2 {
+  margin-bottom: 18px;
+}
+
+.card {
+  border: 1px solid #dedede;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.tour-empty {
+  display: flex;
+  min-height: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #4b4b4b;
+}
+
+.calendar-illustration {
+  font-size: 76px;
+  line-height: 1;
+}
+
+.tour-empty h3,
+.explore-empty h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.primary-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  background: #1769e8;
+  color: #fff;
+  text-decoration: none;
+}
+
+.primary-button:hover {
+  background: #0f58c8;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.section-heading select,
+.icon-button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+}
+
+.icon-button {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.updates-card {
+  display: flex;
+  min-height: 100px;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+}
+
+.update-icon {
+  color: #3895ff;
+  background: #f3f8ff;
+  font-size: 24px;
+}
+
+.update-copy {
+  min-width: 0;
+}
+
+.update-copy p {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.updates-card time {
+  margin: 34px 0 0 auto;
+  color: #888;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.explore-panel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 26px 24px;
+  border-left: 1px solid #dedede;
+}
+
+.property-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 24px;
+  padding: 4px;
+  border: 1px solid #dedede;
+  border-radius: 10px;
+}
+
+.property-tabs button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.property-tabs button.selected {
+  background: #f3f3f3;
+}
+
+.explore-empty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.property-illustration {
+  margin-bottom: 22px;
+  font-size: 90px;
+}
+
+.explore-empty h3 {
+  color: #4b4b4b;
+}
+
+.explore-empty p {
+  max-width: 280px;
+  margin: 6px 0 18px;
+  color: #888;
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .overview-layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .overview-layout {
+    grid-template-columns: 1fr;
+    margin: -20px -16px;
+  }
+
+  .overview-main {
+    padding: 20px 16px;
+  }
+
+  .explore-panel {
+    min-height: 500px;
+    border-top: 1px solid #dedede;
+    border-left: 0;
+  }
+
+  .updates-card {
+    flex-wrap: wrap;
+  }
+
+  .updates-card time {
+    width: 100%;
+    margin: 0 0 0 72px;
+  }
+}

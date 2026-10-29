@@ -2,7 +2,7 @@ import './App.css'
 import './styles/app.css'
 import { BrowserRouter, Navigate, Routes, Route } from "react-router";
 import AppShell from "./components/AppShell"
-
+import Overview from "./pages/Overview"
 
 function ComingSoon({ title }: { title: string}) {
   return <h1>{title}</h1>
@@ -13,9 +13,9 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppShell />}>
-        <Route index element={<Navigate to="/rentals" replace />} />
+        <Route index element={<Navigate to="/overview" replace />} />
 
-        <Route path="overview" element={<ComingSoon title="Overview" />} />
+        <Route path="overview" element={<Overview />} />
         <Route path="saved-properties" element={<ComingSoon title="Saved Properties" />} />
         <Route path="saved-searches" element={<ComingSoon title="Saved Searches" />} />
         <Route path="tours" element={<ComingSoon title="Tours" />} />
