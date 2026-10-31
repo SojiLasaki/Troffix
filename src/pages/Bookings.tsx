@@ -1,4 +1,4 @@
-import PageHeader from '../components/page-header';
+import  PageHeader from '../components/page-header';
 import HeaderButton from '../components/header-button';
 
 function Bookings({ title, tag }: { title: string, tag: string }) {

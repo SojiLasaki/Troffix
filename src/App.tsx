@@ -8,6 +8,10 @@ import AppShell from "./components/AppShell"
 import Overview from "./pages/Overview"
 import SavedProperties from "./pages/SavedProperties"
 import SavedSearches from './pages/SavedSearches';
+import './styles/mains.css'
+import "./styles/saved_properties.css"
+import "./styles/overview.css"
+import "./styles/buttons.css"
 
 function ComingSoon({ title }: { title: string}) {
   return <h1>{title}</h1>
