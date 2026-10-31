@@ -1,0 +1,12 @@
+.header-layout {
+  display: grid;
+  min-height: calc(100vh - 96px);
+  margin: -26px -24px;
+}
+
+.header-main {
+  min-width: 0;
+  padding: 26px 24px;
+  display: flex;
+  justify-content: space-between;
+}
